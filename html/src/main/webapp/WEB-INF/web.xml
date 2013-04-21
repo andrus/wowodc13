@@ -5,7 +5,7 @@
 	<display-name>CMS: HTML</display-name>
 	<context-param>
 		<param-name>tapestry.app-package</param-name>
-		<param-value>com.objectstyle.wowodc.cms</param-value>
+		<param-value>com.objectstyle.demo.html</param-value>
 	</context-param>
 
 	<filter>
