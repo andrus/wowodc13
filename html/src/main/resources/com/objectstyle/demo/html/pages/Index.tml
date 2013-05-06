@@ -1,6 +1,4 @@
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
-  <body>
+<html t:type="pagewrapper" title="prop:text" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
     <h1>${text}</h1>
     <p><t:actionlink t:id="click">click me</t:actionlink></p>
-  </body>
 </html>
