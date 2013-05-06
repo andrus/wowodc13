@@ -1,5 +1,6 @@
-<html>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
   <body>
-    <p>${text}</p>
+    <h1>${text}</h1>
+    <p><t:actionlink t:id="click">click me</t:actionlink></p>
   </body>
 </html>
