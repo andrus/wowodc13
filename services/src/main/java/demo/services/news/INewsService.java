@@ -1,4 +1,4 @@
-package demo.html.services.news;
+package demo.services.news;
 
 import java.util.List;
 
