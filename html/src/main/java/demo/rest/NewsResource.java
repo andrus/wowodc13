@@ -1,4 +1,4 @@
-package com.objectstyle.demo.rest;
+package demo.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
