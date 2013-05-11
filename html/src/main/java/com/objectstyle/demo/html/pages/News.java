@@ -11,6 +11,7 @@ import org.apache.tapestry5.annotations.Property;
 
 import com.objectstyle.demo.cayenne.Article;
 import com.objectstyle.demo.html.services.cayenne.ICayenneService;
+import com.objectstyle.demo.html.services.domain.IDomainService;
 
 public class News {
 
@@ -20,13 +21,17 @@ public class News {
 	@Inject
 	private ICayenneService cayenneService;
 
+	@Inject
+	private IDomainService domainService;
+
 	public List<Article> getNewsList() {
 		SelectQuery<Article> query = new SelectQuery<Article>(Article.class);
+		query.andQualifier(Article.DOMAIN.eq(domainService.currentDomain()));
 		query.addOrdering(Article.PUBLISHED_ON.desc());
 
 		return cayenneService.sharedContext().select(query);
 	}
-	
+
 	public Format getPublishDateFormat() {
 		return new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	}

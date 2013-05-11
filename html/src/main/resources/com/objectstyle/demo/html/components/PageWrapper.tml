@@ -1,6 +1,6 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 	<head>
-		<title>${title}</title>
+		<title>${fullTitle}</title>
 	</head>
 	<body>
 		<t:body />
