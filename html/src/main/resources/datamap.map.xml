@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/3.0/modelMap"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
+	 project-version="6">
+	<property name="defaultPackage" value="com.objectstyle.demo.cayenne"/>
+	<db-entity name="article" catalog="demo">
+		<db-attribute name="body" type="LONGVARCHAR" length="16777215"/>
+		<db-attribute name="domain_id" type="BIGINT" isMandatory="true" length="19"/>
+		<db-attribute name="id" type="BIGINT" isPrimaryKey="true" isGenerated="true" isMandatory="true" length="19"/>
+		<db-attribute name="title" type="VARCHAR" isMandatory="true" length="100"/>
+	</db-entity>
+	<db-entity name="domain" catalog="demo">
+		<db-attribute name="id" type="BIGINT" isPrimaryKey="true" isGenerated="true" isMandatory="true" length="19"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="100"/>
+	</db-entity>
+	<obj-entity name="Article" className="com.objectstyle.demo.cayenne.Article" dbEntityName="article">
+		<obj-attribute name="body" type="java.lang.String" db-attribute-path="body"/>
+		<obj-attribute name="title" type="java.lang.String" db-attribute-path="title"/>
+	</obj-entity>
+	<obj-entity name="Domain" className="com.objectstyle.demo.cayenne.Domain" dbEntityName="domain">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<db-relationship name="domain" source="article" target="domain" toMany="false">
+		<db-attribute-pair source="domain_id" target="id"/>
+	</db-relationship>
+	<db-relationship name="articles" source="domain" target="article" toMany="true">
+		<db-attribute-pair source="id" target="domain_id"/>
+	</db-relationship>
+	<obj-relationship name="domain" source="Article" target="Domain" deleteRule="Nullify" db-relationship-path="domain"/>
+	<obj-relationship name="articles" source="Domain" target="Article" deleteRule="Deny" db-relationship-path="articles"/>
+</data-map>
