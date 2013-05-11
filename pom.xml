@@ -7,7 +7,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>parent-pom</name>
 	<modules>
+		<module>services</module>
 		<module>site</module>
+		<module>editor</module>
 	</modules>
 	<dependencyManagement>
 	<dependencies>

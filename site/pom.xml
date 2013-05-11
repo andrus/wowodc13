@@ -37,6 +37,11 @@
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-servlet</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.objectstyle.demo</groupId>
+			<artifactId>services</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -57,24 +62,6 @@
 						<contextPath>/</contextPath>
 					</webapp>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.cayenne.plugins</groupId>
-				<artifactId>maven-cayenne-plugin</artifactId>
-				<configuration>
-					<map>${project.basedir}/src/main/resources/datamap.map.xml</map>
-					<destDir>${project.basedir}/src/main/java</destDir>
-					<defaultPackage>demo.cayenne</defaultPackage>
-					<superPkg>demo.cayenne.auto</superPkg>
-				</configuration>
-				<executions>
-					<execution>
-						<id>default-cli</id>
-						<goals>
-							<goal>cgen</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
