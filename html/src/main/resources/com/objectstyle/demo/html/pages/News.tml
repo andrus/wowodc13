@@ -1,3 +1,10 @@
-<html t:type="pagewrapper" title="'News'" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
-    <h1>News</h1>
+<html t:type="pagewrapper" title="'News'"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<h2>Most recent news:</h2>
+
+	<ul>
+		<t:loop t:source="newsList" t:value="article">
+			<li>${article.title}</li>
+		</t:loop>
+	</ul>
 </html>

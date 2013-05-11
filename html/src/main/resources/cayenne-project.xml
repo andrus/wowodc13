@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <domain project-version="6">
 	<map name="datamap"/>
+
+	<node name="datanode"
+		 factory="org.apache.cayenne.configuration.server.XMLPoolingDataSourceFactory"
+		 schema-update-strategy="org.apache.cayenne.access.dbsync.SkipSchemaUpdateStrategy"
+		>
+		<map-ref name="datamap"/>
+		<data-source>
+			<driver value="com.mysql.jdbc.Driver"/>
+			<url value="jdbc:mysql://192.168.49.3/demo"/>
+			<connectionPool min="1" max="3"/>
+			<login userName="root" password="root"/>
+		</data-source>
+	</node>
 </domain>
