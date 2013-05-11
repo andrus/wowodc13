@@ -7,9 +7,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>editor</artifactId>
-	<packaging>war</packaging>
-	<name>editor webapp</name>
+	<artifactId>services</artifactId>
+	<packaging>jar</packaging>
+	<name>common services</name>
 
 	<dependencies>
 		<dependency>
@@ -25,31 +25,26 @@
 			<artifactId>javax.servlet</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.objectstyle.demo</groupId>
-			<artifactId>services</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
+				<groupId>org.apache.cayenne.plugins</groupId>
+				<artifactId>maven-cayenne-plugin</artifactId>
 				<configuration>
-					<connectors>
-						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-							<port>7102</port>
-							<maxIdleTime>60000</maxIdleTime>
-
-							<!-- This is needed to work with proxy -->
-							<forwarded>true</forwarded>
-						</connector>
-					</connectors>
-					<webapp>
-						<contextPath>/editor</contextPath>
-					</webapp>
+					<map>${project.basedir}/src/main/resources/datamap.map.xml</map>
+					<destDir>${project.basedir}/src/main/java</destDir>
+					<defaultPackage>demo.cayenne</defaultPackage>
+					<superPkg>demo.cayenne.auto</superPkg>
 				</configuration>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<goals>
+							<goal>cgen</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
