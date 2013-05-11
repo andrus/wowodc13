@@ -17,6 +17,12 @@
 			<artifactId>cayenne-server</artifactId>
 			<version>3.2M1.r1479928</version>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.orbit</groupId>
+			<artifactId>javax.servlet</artifactId>
+			<version>3.0.0.v201112011016</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -36,6 +42,9 @@
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
 							<port>7101</port>
 							<maxIdleTime>60000</maxIdleTime>
+							
+							<!-- This is needed to work with proxy -->
+							<forwarded>true</forwarded>
 						</connector>
 					</connectors>
 					<webapp>

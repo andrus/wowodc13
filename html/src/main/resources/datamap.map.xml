@@ -14,6 +14,7 @@
 	<db-entity name="domain" catalog="demo">
 		<db-attribute name="id" type="BIGINT" isPrimaryKey="true" isGenerated="true" isMandatory="true" length="19"/>
 		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="100"/>
+		<db-attribute name="vhost" type="VARCHAR" isMandatory="true" length="100"/>
 	</db-entity>
 	<obj-entity name="Article" className="com.objectstyle.demo.cayenne.Article" dbEntityName="article">
 		<obj-attribute name="body" type="java.lang.String" db-attribute-path="body"/>
@@ -22,6 +23,7 @@
 	</obj-entity>
 	<obj-entity name="Domain" className="com.objectstyle.demo.cayenne.Domain" dbEntityName="domain">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="vhost" type="java.lang.String" db-attribute-path="vhost"/>
 	</obj-entity>
 	<db-relationship name="domain" source="article" target="domain" toMany="false">
 		<db-attribute-pair source="domain_id" target="id"/>

@@ -1,11 +1,20 @@
 package com.objectstyle.demo.html.components;
 
+import javax.inject.Inject;
+
 import org.apache.tapestry5.annotations.Parameter;
-import org.apache.tapestry5.annotations.Property;
+
+import com.objectstyle.demo.html.services.domain.IDomainService;
 
 public class PageWrapper {
 
 	@Parameter
-	@Property
 	private String title;
+
+	@Inject
+	private IDomainService domainService;
+
+	public String getFullTitle() {
+		return title + " - " + domainService.currentDomain().getName();
+	}
 }
