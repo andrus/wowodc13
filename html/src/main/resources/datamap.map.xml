@@ -8,6 +8,7 @@
 		<db-attribute name="body" type="LONGVARCHAR" length="16777215"/>
 		<db-attribute name="domain_id" type="BIGINT" isMandatory="true" length="19"/>
 		<db-attribute name="id" type="BIGINT" isPrimaryKey="true" isGenerated="true" isMandatory="true" length="19"/>
+		<db-attribute name="published_on" type="TIMESTAMP" isMandatory="true"/>
 		<db-attribute name="title" type="VARCHAR" isMandatory="true" length="100"/>
 	</db-entity>
 	<db-entity name="domain" catalog="demo">
@@ -16,6 +17,7 @@
 	</db-entity>
 	<obj-entity name="Article" className="com.objectstyle.demo.cayenne.Article" dbEntityName="article">
 		<obj-attribute name="body" type="java.lang.String" db-attribute-path="body"/>
+		<obj-attribute name="publishedOn" type="java.util.Date" db-attribute-path="published_on"/>
 		<obj-attribute name="title" type="java.lang.String" db-attribute-path="title"/>
 	</obj-entity>
 	<obj-entity name="Domain" className="com.objectstyle.demo.cayenne.Domain" dbEntityName="domain">
