@@ -1,4 +1,4 @@
-package com.objectstyle.demo.html.services.cayenne;
+package demo.html.services.cayenne;
 
 import org.apache.cayenne.ObjectContext;
 
