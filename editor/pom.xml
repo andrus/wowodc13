@@ -7,9 +7,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>site</artifactId>
+	<artifactId>editor</artifactId>
 	<packaging>war</packaging>
-	<name>site webapp</name>
+	<name>editor webapp</name>
 
 	<dependencies>
 		<dependency>
@@ -25,18 +25,6 @@
 			<artifactId>javax.servlet</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-servlet</artifactId>
-		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -46,7 +34,7 @@
 				<configuration>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-							<port>7101</port>
+							<port>7102</port>
 							<maxIdleTime>60000</maxIdleTime>
 
 							<!-- This is needed to work with proxy -->
@@ -54,27 +42,9 @@
 						</connector>
 					</connectors>
 					<webapp>
-						<contextPath>/</contextPath>
+						<contextPath>/editor</contextPath>
 					</webapp>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.cayenne.plugins</groupId>
-				<artifactId>maven-cayenne-plugin</artifactId>
-				<configuration>
-					<map>${project.basedir}/src/main/resources/datamap.map.xml</map>
-					<destDir>${project.basedir}/src/main/java</destDir>
-					<defaultPackage>demo.cayenne</defaultPackage>
-					<superPkg>demo.cayenne.auto</superPkg>
-				</configuration>
-				<executions>
-					<execution>
-						<id>default-cli</id>
-						<goals>
-							<goal>cgen</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
