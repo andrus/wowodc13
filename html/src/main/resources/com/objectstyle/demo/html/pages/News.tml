@@ -19,7 +19,7 @@
 
 	<t:zone t:id="articleZone" id="articleZone" visible="false">
 		<t:if test="clickedArticle">
-			<div style="background: #EEEEEE; width: 100%; height: 50%;">
+			<div style="background: #EEEEEE; width: 90%; height: 50%; padding: 20px 20px 20px 20px">
 				<h2>${clickedArticle.title}</h2>
 				<div>${clickedArticle.body}</div>
 			</div>
