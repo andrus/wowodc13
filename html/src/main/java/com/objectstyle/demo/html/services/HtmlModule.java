@@ -1,5 +1,6 @@
 package com.objectstyle.demo.html.services;
 
+import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 
 import com.objectstyle.demo.html.services.cayenne.CayenneService;
@@ -12,5 +13,10 @@ public class HtmlModule {
 	public static void bind(ServiceBinder binder) {
 		binder.bind(ICayenneService.class, CayenneService.class);
 		binder.bind(IDomainService.class, VhostDomainService.class);
+	}
+
+	public static void contributeIgnoredPathsFilter(
+			Configuration<String> configuration) {
+		configuration.add("/rest/.*");
 	}
 }
