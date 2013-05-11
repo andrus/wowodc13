@@ -9,9 +9,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import demo.cayenne.Article;
-import demo.html.services.news.INewsService;
 import demo.rest.model.JaxbArticle;
 import demo.rest.model.JaxbArticles;
+import demo.services.news.INewsService;
 
 @Path("news")
 public class NewsResource {

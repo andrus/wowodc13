@@ -12,7 +12,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
 
 import demo.cayenne.Article;
-import demo.html.services.news.INewsService;
+import demo.services.news.INewsService;
 
 public class News {
 

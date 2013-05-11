@@ -1,4 +1,4 @@
-package demo.html.services.news;
+package demo.services.news;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.apache.cayenne.Cayenne;
 import org.apache.cayenne.query.SelectQuery;
 
 import demo.cayenne.Article;
-import demo.html.services.cayenne.ICayenneService;
-import demo.html.services.domain.IDomainService;
+import demo.services.cayenne.ICayenneService;
+import demo.services.domain.IDomainService;
 
 public class NewsService implements INewsService {
 

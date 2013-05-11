@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import org.apache.tapestry5.annotations.Parameter;
 
-import demo.html.services.domain.IDomainService;
+import demo.services.domain.IDomainService;
 
 public class PageWrapper {
 

@@ -1,4 +1,4 @@
-package demo.html.services.domain;
+package demo.services.domain;
 
 import demo.cayenne.Domain;
 
