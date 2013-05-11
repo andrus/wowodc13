@@ -9,10 +9,8 @@ import javax.inject.Inject;
 import org.apache.cayenne.Cayenne;
 import org.apache.cayenne.query.SelectQuery;
 import org.apache.tapestry5.annotations.InjectComponent;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
-
 
 import demo.cayenne.Article;
 import demo.html.services.cayenne.ICayenneService;
