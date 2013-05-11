@@ -10,7 +10,7 @@ import demo.html.services.domain.VhostDomainService;
 import demo.html.services.news.INewsService;
 import demo.html.services.news.NewsService;
 
-public class HtmlModule {
+public class SiteModule {
 
 	public static void bind(ServiceBinder binder) {
 		binder.bind(ICayenneService.class, CayenneService.class);
