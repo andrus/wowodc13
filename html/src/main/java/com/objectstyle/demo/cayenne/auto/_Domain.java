@@ -18,11 +18,14 @@ public abstract class _Domain extends CayenneDataObject {
     @Deprecated
     public static final String NAME_PROPERTY = "name";
     @Deprecated
+    public static final String VHOST_PROPERTY = "vhost";
+    @Deprecated
     public static final String ARTICLES_PROPERTY = "articles";
 
     public static final String ID_PK_COLUMN = "id";
 
     public static final Property<String> NAME = new Property<String>("name");
+    public static final Property<String> VHOST = new Property<String>("vhost");
     public static final Property<List<Article>> ARTICLES = new Property<List<Article>>("articles");
 
     public void setName(String name) {
@@ -30,6 +33,13 @@ public abstract class _Domain extends CayenneDataObject {
     }
     public String getName() {
         return (String)readProperty("name");
+    }
+
+    public void setVhost(String vhost) {
+        writeProperty("vhost", vhost);
+    }
+    public String getVhost() {
+        return (String)readProperty("vhost");
     }
 
     public void addToArticles(Article obj) {
