@@ -59,8 +59,8 @@
 				<configuration>
 					<map>${project.basedir}/src/main/resources/datamap.map.xml</map>
 					<destDir>${project.basedir}/src/main/java</destDir>
-					<defaultPackage>com.objectstyle.demo.cayenne</defaultPackage>
-					<superPkg>com.objectstyle.demo.cayenne.auto</superPkg>
+					<defaultPackage>demo.cayenne</defaultPackage>
+					<superPkg>demo.cayenne.auto</superPkg>
 				</configuration>
 				<executions>
 					<execution>

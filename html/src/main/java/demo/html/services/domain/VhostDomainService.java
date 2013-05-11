@@ -1,4 +1,4 @@
-package com.objectstyle.demo.html.services.domain;
+package demo.html.services.domain;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -7,8 +7,9 @@ import org.apache.cayenne.Cayenne;
 import org.apache.cayenne.query.QueryCacheStrategy;
 import org.apache.cayenne.query.SelectQuery;
 
-import com.objectstyle.demo.cayenne.Domain;
-import com.objectstyle.demo.html.services.cayenne.ICayenneService;
+
+import demo.cayenne.Domain;
+import demo.html.services.cayenne.ICayenneService;
 
 public class VhostDomainService implements IDomainService {
 

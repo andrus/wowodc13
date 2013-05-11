@@ -1,4 +1,4 @@
-package com.objectstyle.demo.html.pages;
+package demo.html.pages;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -13,9 +13,10 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
 
-import com.objectstyle.demo.cayenne.Article;
-import com.objectstyle.demo.html.services.cayenne.ICayenneService;
-import com.objectstyle.demo.html.services.domain.IDomainService;
+
+import demo.cayenne.Article;
+import demo.html.services.cayenne.ICayenneService;
+import demo.html.services.domain.IDomainService;
 
 public class News {
 
