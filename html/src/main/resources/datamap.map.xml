@@ -3,7 +3,7 @@
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
 	 project-version="6">
-	<property name="defaultPackage" value="com.objectstyle.demo.cayenne"/>
+	<property name="defaultPackage" value="demo.cayenne"/>
 	<db-entity name="article" catalog="demo">
 		<db-attribute name="body" type="LONGVARCHAR" length="16777215"/>
 		<db-attribute name="domain_id" type="BIGINT" isMandatory="true" length="19"/>
@@ -16,12 +16,12 @@
 		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="100"/>
 		<db-attribute name="vhost" type="VARCHAR" isMandatory="true" length="100"/>
 	</db-entity>
-	<obj-entity name="Article" className="com.objectstyle.demo.cayenne.Article" dbEntityName="article">
+	<obj-entity name="Article" className="demo.cayenne.Article" dbEntityName="article">
 		<obj-attribute name="body" type="java.lang.String" db-attribute-path="body"/>
 		<obj-attribute name="publishedOn" type="java.util.Date" db-attribute-path="published_on"/>
 		<obj-attribute name="title" type="java.lang.String" db-attribute-path="title"/>
 	</obj-entity>
-	<obj-entity name="Domain" className="com.objectstyle.demo.cayenne.Domain" dbEntityName="domain">
+	<obj-entity name="Domain" className="demo.cayenne.Domain" dbEntityName="domain">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
 		<obj-attribute name="vhost" type="java.lang.String" db-attribute-path="vhost"/>
 	</obj-entity>
