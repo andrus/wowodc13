@@ -1,4 +1,9 @@
-<html t:type="pagewrapper" title="prop:text" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
-    <h1>${text}</h1>
-    <p><t:actionlink t:id="click">click me</t:actionlink></p>
+<html t:type="pagewrapper" title="'Home'"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<h1>Go to:</h1>
+	<ul>
+		<li>
+			<t:pagelink page="news">News...</t:pagelink>
+		</li>
+	</ul>
 </html>
