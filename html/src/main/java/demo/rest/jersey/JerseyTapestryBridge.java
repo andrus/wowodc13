@@ -23,10 +23,12 @@ public class JerseyTapestryBridge implements InjectableProvider<Inject, Type> {
 	@Context
 	private ServletContext servletContext;
 
+	@Override
 	public ComponentScope getScope() {
 		return ComponentScope.Singleton;
 	}
 
+	@Override
 	@SuppressWarnings("rawtypes")
 	public Injectable getInjectable(ComponentContext ic, final Inject a,
 			final Type c) {
