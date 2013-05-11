@@ -4,7 +4,7 @@
 
 	<ul>
 		<t:loop t:source="newsList" t:value="article">
-			<li>${article.title}</li>
+			<li><span style="font-size:12px">[<t:output value="article.publishedOn" format="publishDateFormat"/>]</span> ${article.title}</li>
 		</t:loop>
 	</ul>
 </html>

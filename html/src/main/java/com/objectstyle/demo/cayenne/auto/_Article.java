@@ -1,5 +1,7 @@
 package com.objectstyle.demo.cayenne.auto;
 
+import java.util.Date;
+
 import org.apache.cayenne.CayenneDataObject;
 import org.apache.cayenne.exp.Property;
 
@@ -16,6 +18,8 @@ public abstract class _Article extends CayenneDataObject {
     @Deprecated
     public static final String BODY_PROPERTY = "body";
     @Deprecated
+    public static final String PUBLISHED_ON_PROPERTY = "publishedOn";
+    @Deprecated
     public static final String TITLE_PROPERTY = "title";
     @Deprecated
     public static final String DOMAIN_PROPERTY = "domain";
@@ -23,6 +27,7 @@ public abstract class _Article extends CayenneDataObject {
     public static final String ID_PK_COLUMN = "id";
 
     public static final Property<String> BODY = new Property<String>("body");
+    public static final Property<Date> PUBLISHED_ON = new Property<Date>("publishedOn");
     public static final Property<String> TITLE = new Property<String>("title");
     public static final Property<Domain> DOMAIN = new Property<Domain>("domain");
 
@@ -31,6 +36,13 @@ public abstract class _Article extends CayenneDataObject {
     }
     public String getBody() {
         return (String)readProperty("body");
+    }
+
+    public void setPublishedOn(Date publishedOn) {
+        writeProperty("publishedOn", publishedOn);
+    }
+    public Date getPublishedOn() {
+        return (Date)readProperty("publishedOn");
     }
 
     public void setTitle(String title) {
