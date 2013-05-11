@@ -4,16 +4,16 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-import demo.html.services.domain.IDomainService;
+import demo.html.services.news.INewsService;
 
-@Path("/")
+@Path("news")
 public class NewsResource {
 
 	@Inject
-	private IDomainService domainService;
+	private INewsService newsService;
 
 	@GET
-	public String get() {
-		return "Hello, world @" + domainService.currentDomain().getName();
+	public Object get() {
+		return newsService.getRecentNews().toString();
 	}
 }
