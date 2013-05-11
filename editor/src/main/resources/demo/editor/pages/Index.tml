@@ -1,0 +1,4 @@
+<html t:type="pagewrapper" title="'Home'"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<h2>Welcome to Editor!</h2>
+</html>
