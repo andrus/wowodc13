@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "news")
 public class JaxbArticles {
 
-	@XmlElement(name = "article")
+	@XmlElement(name = "articles")
 	public List<JaxbArticle> articles = new ArrayList<JaxbArticle>();
 
 	public void addArticle(JaxbArticle article) {
