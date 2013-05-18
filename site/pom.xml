@@ -62,9 +62,9 @@
 							<forwarded>true</forwarded>
 						</connector>
 					</connectors>
-					<webapp>
+					<webApp>
 						<contextPath>/</contextPath>
-					</webapp>
+					</webApp>
 				</configuration>
 			</plugin>
 			<plugin>
