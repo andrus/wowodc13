@@ -6,7 +6,7 @@ import org.apache.tapestry5.ioc.services.RegistryShutdownHub;
 
 public class CayenneService implements ICayenneService {
 
-	private ServerRuntime runtime;
+	protected ServerRuntime runtime;
 	private ObjectContext sharedContext;
 
 	public CayenneService(RegistryShutdownHub shutdownHub) {

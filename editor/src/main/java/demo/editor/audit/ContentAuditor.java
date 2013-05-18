@@ -5,10 +5,11 @@ import org.apache.cayenne.PersistenceState;
 import org.apache.cayenne.annotation.PrePersist;
 import org.apache.cayenne.annotation.PreRemove;
 import org.apache.cayenne.annotation.PreUpdate;
+import org.apache.cayenne.lifecycle.audit.AuditableProcessor;
 
 import demo.cayenne.CustomAudit;
 
-public class ContentAuditor {
+public class ContentAuditor implements AuditableProcessor {
 
 	@PrePersist(entityAnnotations = CustomAudit.class)
 	@PreRemove(entityAnnotations = CustomAudit.class)
