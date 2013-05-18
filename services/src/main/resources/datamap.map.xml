@@ -20,6 +20,7 @@
 		<obj-attribute name="body" type="java.lang.String" db-attribute-path="body"/>
 		<obj-attribute name="publishedOn" type="java.util.Date" db-attribute-path="published_on"/>
 		<obj-attribute name="title" type="java.lang.String" db-attribute-path="title"/>
+		<post-add method-name="onPostAdd"/>
 	</obj-entity>
 	<obj-entity name="Domain" className="demo.cayenne.Domain" dbEntityName="domain">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>

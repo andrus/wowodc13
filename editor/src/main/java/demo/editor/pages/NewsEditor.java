@@ -43,7 +43,6 @@ public class NewsEditor {
 	public void startEditing() {
 		ObjectContext context = cayenneService.newContext();
 		this.article = context.newObject(Article.class);
-		this.article.setPublishedOn(new Date());
 		this.article.setDomain(context.localObject(domainService
 				.currentDomain()));
 	}
