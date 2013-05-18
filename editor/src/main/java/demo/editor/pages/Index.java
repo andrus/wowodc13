@@ -7,6 +7,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.cayenne.Cayenne;
+import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Property;
 
 import demo.cayenne.Article;
@@ -19,6 +20,9 @@ public class Index {
 
 	@Inject
 	private INewsService newsService;
+
+	@InjectPage
+	private NewsEditor editor;
 
 	public List<Article> getNewsList() {
 		return newsService.getRecentNews();
@@ -33,7 +37,8 @@ public class Index {
 	}
 
 	public Object onActionFromArticleLink(int articleId) {
-		return Index.class;
+		editor.startEditing(articleId);
+		return editor;
 	}
 
 }
