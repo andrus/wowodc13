@@ -1,18 +1,19 @@
 package demo.editor.audit;
 
+import org.apache.cayenne.DataObject;
 import org.apache.cayenne.PersistenceState;
 import org.apache.cayenne.annotation.PrePersist;
 import org.apache.cayenne.annotation.PreRemove;
 import org.apache.cayenne.annotation.PreUpdate;
 
-import demo.cayenne.Article;
+import demo.cayenne.CustomAudit;
 
 public class ContentAuditor {
 
-	@PrePersist(Article.class)
-	@PreRemove(Article.class)
-	@PreUpdate(Article.class)
-	public void audit(Article object) {
+	@PrePersist(entityAnnotations = CustomAudit.class)
+	@PreRemove(entityAnnotations = CustomAudit.class)
+	@PreUpdate(entityAnnotations = CustomAudit.class)
+	public void audit(DataObject object) {
 
 		String op = "?";
 
@@ -28,7 +29,7 @@ public class ContentAuditor {
 			break;
 		}
 
-		System.out.println(String.format("[AUDIT] object [%s] is %s",
+		System.out.println(String.format("[AUDIT]  [%s] is %s",
 				object.getObjectId(), op));
 	}
 
