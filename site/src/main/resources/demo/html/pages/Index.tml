@@ -1,9 +1,35 @@
 <html t:type="pagewrapper" title="'Home'"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
-	<h2>Go to:</h2>
 	<ul>
 		<li>
-			<t:pagelink page="news">News...</t:pagelink>
+			<t:pagelink page="secondpage">Go someplace else</t:pagelink>
 		</li>
 	</ul>
+
+	<h2>Most recent news:</h2>
+
+	<ul>
+		<t:loop t:source="newsList" t:value="article">
+			<li>
+				<span style="font-size:12px">
+					[
+					<t:output value="article.publishedOn" format="publishDateFormat" />
+					]
+				</span>
+				<t:actionlink t:id="articleLink" t:zone="articleZone"
+					context="articleId">${article.title}
+				</t:actionlink>
+			</li>
+		</t:loop>
+	</ul>
+
+	<t:zone t:id="articleZone" id="articleZone" visible="false">
+		<t:if test="clickedArticle">
+			<div
+				style="background: #EEEEEE; width: 90%; height: 50%; padding: 20px 20px 20px 20px">
+				<h2>${clickedArticle.title}</h2>
+				<div>${clickedArticle.body}</div>
+			</div>
+		</t:if>
+	</t:zone>
 </html>
