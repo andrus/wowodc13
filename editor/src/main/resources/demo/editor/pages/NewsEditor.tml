@@ -2,4 +2,25 @@
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 	<h2>Editing: ${articleID}</h2>
 	
+	<span style="background: yellow">${message}</span>
+	
+	<t:form id="form">
+		<table>
+			<tr>
+				<td>Title:</td>
+				<td>
+					<t:textfield size="50" value="article.title" />
+				</td>
+			</tr>
+			<tr>
+				<td>Body:</td>
+				<td>
+					<t:textarea cols="45" rows="10" value="article.body" />
+				</td>
+			</tr>
+			<tr>
+			<td colspan="2" align="right"><t:submit value="Save"/></td>
+			</tr>
+		</table>
+	</t:form>
 </html>
