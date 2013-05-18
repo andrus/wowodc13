@@ -2,6 +2,9 @@
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 	<h2>Welcome to Editor!</h2>
 	<ul>
+		<li>
+			<t:actionlink t:id="newarticlelink">create new...</t:actionlink>
+		</li>
 		<t:loop t:source="newsList" t:value="article">
 			<li>
 				<span style="font-size:12px">
@@ -9,7 +12,8 @@
 					<t:output value="article.publishedOn" format="publishDateFormat" />
 					]
 				</span>
-				<t:actionlink t:id="articlelink" context="articleId">${article.title}</t:actionlink>
+				<t:actionlink t:id="articlelink" context="articleId">${article.title}
+				</t:actionlink>
 			</li>
 		</t:loop>
 	</ul>
