@@ -1,0 +1,4 @@
+<html t:type="pagewrapper" title="'News'"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<h2>Some place else</h2>
+</html>
