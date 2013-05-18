@@ -1,15 +1,13 @@
 package demo.editor.audit;
 
-import org.apache.cayenne.DataObject;
+import org.apache.cayenne.Persistent;
 import org.apache.cayenne.lifecycle.audit.AuditableOperation;
 import org.apache.cayenne.lifecycle.audit.AuditableProcessor;
 
 public class ContentAuditor implements AuditableProcessor {
 
 	@Override
-	public void audit(Object object, AuditableOperation operation) {
-
-		DataObject dataObject = (DataObject) object;
+	public void audit(Persistent object, AuditableOperation operation) {
 
 		String op = "?";
 
@@ -26,7 +24,7 @@ public class ContentAuditor implements AuditableProcessor {
 		}
 
 		System.out.println(String.format("[AUDIT]  [%s] is %s",
-				dataObject.getObjectId(), op));
+				object.getObjectId(), op));
 	}
 
 }
