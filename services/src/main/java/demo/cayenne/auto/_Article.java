@@ -61,4 +61,6 @@ public abstract class _Article extends CayenneDataObject {
     }
 
 
+    protected abstract void onPostAdd();
+
 }
