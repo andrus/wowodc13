@@ -23,6 +23,11 @@
 				<artifactId>cayenne-server</artifactId>
 				<version>3.2M1.r1479928</version>
 			</dependency>
+            <dependency>
+				<groupId>org.apache.cayenne</groupId>
+				<artifactId>cayenne-lifecycle</artifactId>
+				<version>3.2M1.r1479928</version>
+			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jetty.orbit</groupId>
 				<artifactId>javax.servlet</artifactId>
