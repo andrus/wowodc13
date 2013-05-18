@@ -2,9 +2,11 @@ package demo.cayenne;
 
 import java.util.Date;
 
+import org.apache.cayenne.lifecycle.audit.Auditable;
+
 import demo.cayenne.auto._Article;
 
-@CustomAudit
+@Auditable
 public class Article extends _Article {
 
 	@Override

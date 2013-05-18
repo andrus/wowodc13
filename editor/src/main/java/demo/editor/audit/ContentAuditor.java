@@ -1,37 +1,32 @@
 package demo.editor.audit;
 
 import org.apache.cayenne.DataObject;
-import org.apache.cayenne.PersistenceState;
-import org.apache.cayenne.annotation.PrePersist;
-import org.apache.cayenne.annotation.PreRemove;
-import org.apache.cayenne.annotation.PreUpdate;
+import org.apache.cayenne.lifecycle.audit.AuditableOperation;
 import org.apache.cayenne.lifecycle.audit.AuditableProcessor;
-
-import demo.cayenne.CustomAudit;
 
 public class ContentAuditor implements AuditableProcessor {
 
-	@PrePersist(entityAnnotations = CustomAudit.class)
-	@PreRemove(entityAnnotations = CustomAudit.class)
-	@PreUpdate(entityAnnotations = CustomAudit.class)
-	public void audit(DataObject object) {
+	@Override
+	public void audit(Object object, AuditableOperation operation) {
+
+		DataObject dataObject = (DataObject) object;
 
 		String op = "?";
 
-		switch (object.getPersistenceState()) {
-		case PersistenceState.NEW:
+		switch (operation) {
+		case INSERT:
 			op = "created";
 			break;
-		case PersistenceState.MODIFIED:
+		case UPDATE:
 			op = "modified";
 			break;
-		case PersistenceState.DELETED:
+		case DELETE:
 			op = "deleted";
 			break;
 		}
 
 		System.out.println(String.format("[AUDIT]  [%s] is %s",
-				object.getObjectId(), op));
+				dataObject.getObjectId(), op));
 	}
 
 }

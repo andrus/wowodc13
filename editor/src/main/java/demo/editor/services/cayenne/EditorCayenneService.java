@@ -17,7 +17,6 @@ public class EditorCayenneService extends CayenneService {
 				new ContentAuditor());
 
 		runtime.getDataDomain().addFilter(auditableFilter);
-		resolver.getCallbackRegistry().addListener(auditableFilter);
 	}
 
 }
