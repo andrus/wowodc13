@@ -41,4 +41,9 @@ public class Index {
 		return editor;
 	}
 
+	public Object onActionFromNewArticleLink() {
+		editor.startEditing();
+		return editor;
+	}
+
 }
