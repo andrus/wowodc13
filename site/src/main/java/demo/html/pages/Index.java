@@ -13,8 +13,8 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
 
 import demo.cayenne.Article;
-import demo.html.services.cayenne.ICayenneService;
-import demo.html.services.domain.IDomainService;
+import demo.services.cayenne.ICayenneService;
+import demo.services.domain.IDomainService;
 
 public class Index {
 	@Property
