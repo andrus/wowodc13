@@ -26,7 +26,7 @@
             <dependency>
 				<groupId>org.apache.cayenne</groupId>
 				<artifactId>cayenne-lifecycle</artifactId>
-				<version>3.2M1.r1479928</version>
+				<version>3.2M1.r1484122</version>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jetty.orbit</groupId>
@@ -54,6 +54,15 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+  					<groupId>org.apache.maven.plugins</groupId>
+  					<artifactId>maven-compiler-plugin</artifactId>
+  					<configuration>
+   						<source>1.6</source>
+    					<target>1.6</target>
+  					</configuration>
+				</plugin>
+			
 				<plugin>
 					<groupId>org.mortbay.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
