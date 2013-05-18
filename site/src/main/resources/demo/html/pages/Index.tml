@@ -1,10 +1,6 @@
 <html t:type="pagewrapper" title="'Home'"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
-	<ul>
-		<li>
-			<t:pagelink page="secondpage">Go someplace else</t:pagelink>
-		</li>
-	</ul>
+
 
 	<h2>Most recent news:</h2>
 
