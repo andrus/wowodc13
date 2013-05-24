@@ -33,6 +33,10 @@
 			<artifactId>javax.servlet</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

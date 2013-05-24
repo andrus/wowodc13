@@ -54,6 +54,11 @@
 				<artifactId>ehcache-core</artifactId>
 				<version>2.6.6</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.activemq</groupId>
+				<artifactId>activemq-all</artifactId>
+				<version>5.8.0</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
