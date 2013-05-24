@@ -1,7 +1,11 @@
 package demo.services.cayenne;
 
 import org.apache.cayenne.ObjectContext;
+import org.apache.cayenne.cache.EhCacheQueryCache;
+import org.apache.cayenne.cache.QueryCache;
 import org.apache.cayenne.configuration.server.ServerRuntime;
+import org.apache.cayenne.di.Binder;
+import org.apache.cayenne.di.Module;
 import org.apache.tapestry5.ioc.services.RegistryShutdownHub;
 
 public class CayenneService implements ICayenneService {
@@ -10,7 +14,15 @@ public class CayenneService implements ICayenneService {
 	private ObjectContext sharedContext;
 
 	public CayenneService(RegistryShutdownHub shutdownHub) {
-		this.runtime = createRuntime("cayenne-project.xml");
+
+		Module module = new Module() {
+			@Override
+			public void configure(Binder binder) {
+				binder.bind(QueryCache.class).to(EhCacheQueryCache.class);
+			}
+		};
+
+		this.runtime = new ServerRuntime("cayenne-project.xml", module);
 		this.sharedContext = runtime.getContext();
 
 		shutdownHub.addRegistryShutdownListener(new Runnable() {
@@ -19,10 +31,6 @@ public class CayenneService implements ICayenneService {
 				runtime.shutdown();
 			}
 		});
-	}
-
-	protected ServerRuntime createRuntime(String project) {
-		return new ServerRuntime(project);
 	}
 
 	public ObjectContext sharedContext() {

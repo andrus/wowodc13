@@ -23,7 +23,7 @@
 				<artifactId>cayenne-server</artifactId>
 				<version>3.2M1.r1485948</version>
 			</dependency>
-            <dependency>
+			<dependency>
 				<groupId>org.apache.cayenne</groupId>
 				<artifactId>cayenne-lifecycle</artifactId>
 				<version>3.2M1.r1484122</version>
@@ -49,20 +49,25 @@
 				<artifactId>jersey-servlet</artifactId>
 				<version>1.17.1</version>
 			</dependency>
+			<dependency>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache-core</artifactId>
+				<version>2.6.6</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
-  					<groupId>org.apache.maven.plugins</groupId>
-  					<artifactId>maven-compiler-plugin</artifactId>
-  					<configuration>
-   						<source>1.6</source>
-    					<target>1.6</target>
-  					</configuration>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
 				</plugin>
-			
+
 				<plugin>
 					<groupId>org.mortbay.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
