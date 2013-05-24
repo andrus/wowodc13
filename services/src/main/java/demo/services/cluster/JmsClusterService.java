@@ -21,15 +21,15 @@ import org.apache.tapestry5.ioc.services.RegistryShutdownHub;
 public class JmsClusterService implements IClusterService {
 
 	private ConnectionFactory connectionFactory;
-	private Connection listenerConnection;
+	private Connection connection;
 
 	public JmsClusterService(RegistryShutdownHub shutdownHub) throws JMSException {
 		// bootstrap ActiveMQ as JMS provider
 		System.out.println(String.format("[JMS] starting JMS service..."));
 		this.connectionFactory = new ActiveMQConnectionFactory("failover://tcp://localhost:61616");
 
-		this.listenerConnection = connectionFactory.createConnection();
-		this.listenerConnection.start();
+		this.connection = connectionFactory.createConnection();
+		this.connection.start();
 		System.out.println(String.format("[JMS] starting JMS service...done"));
 
 		shutdownHub.addRegistryShutdownListener(new Runnable() {
@@ -43,14 +43,10 @@ public class JmsClusterService implements IClusterService {
 
 	private void shutdown() {
 		try {
-			listenerConnection.close();
+			connection.close();
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}
-	}
-
-	private Connection getConnection() throws JMSException {
-		return connectionFactory.createConnection();
 	}
 
 	private Topic toTopic(String topic) {
@@ -67,32 +63,25 @@ public class JmsClusterService implements IClusterService {
 	}
 
 	private void doSend(String topic, Serializable event) throws JMSException {
-		Connection connection = getConnection();
+
+		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
 		try {
+			ObjectMessage message = session.createObjectMessage(event);
+			// message.setLongProperty(SENDER_PROPERTY, serviceID);
 
-			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+			MessageProducer producer = session.createProducer(toTopic(topic));
 
 			try {
-				ObjectMessage message = session.createObjectMessage(event);
-				// message.setLongProperty(SENDER_PROPERTY, serviceID);
-
-				MessageProducer producer = session.createProducer(toTopic(topic));
-
-				try {
-					producer.setTimeToLive(10000);
-					producer.send(message);
-				} finally {
-					producer.close();
-				}
-
+				producer.setTimeToLive(10000);
+				producer.send(message);
 			} finally {
-				session.close();
+				producer.close();
 			}
-		} finally {
-			connection.close();
-		}
 
+		} finally {
+			session.close();
+		}
 	}
 
 	@Override
@@ -108,7 +97,7 @@ public class JmsClusterService implements IClusterService {
 
 		// session will need to stay open until consumer is no longer
 		// needed
-		Session session = listenerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		session.createConsumer(toTopic(topic)).setMessageListener(new MessageListener() {
 
 			@Override
