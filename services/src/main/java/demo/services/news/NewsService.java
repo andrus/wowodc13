@@ -24,8 +24,8 @@ public class NewsService implements INewsService {
 		SelectQuery<Article> query = new SelectQuery<Article>(Article.class);
 		query.andQualifier(Article.DOMAIN.eq(domainService.currentDomain()));
 		query.addOrdering(Article.PUBLISHED_ON.desc());
-		
-		query.useLocalCache();
+
+		query.useLocalCache("recent_news");
 
 		return cayenneService.sharedContext().select(query);
 	}
