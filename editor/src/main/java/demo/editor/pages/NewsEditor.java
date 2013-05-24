@@ -1,7 +1,5 @@
 package demo.editor.pages;
 
-import java.util.Date;
-
 import javax.inject.Inject;
 
 import org.apache.cayenne.Cayenne;
