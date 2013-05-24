@@ -7,14 +7,13 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.cayenne.Cayenne;
-import org.apache.cayenne.query.SelectQuery;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
 
 import demo.cayenne.Article;
 import demo.services.cayenne.ICayenneService;
-import demo.services.domain.IDomainService;
+import demo.services.news.INewsService;
 
 public class Index {
 	@Property
@@ -27,17 +26,13 @@ public class Index {
 	private ICayenneService cayenneService;
 
 	@Inject
-	private IDomainService domainService;
+	private INewsService newsService;
 
 	@InjectComponent
 	private Zone articleZone;
 
 	public List<Article> getNewsList() {
-		SelectQuery<Article> query = new SelectQuery<Article>(Article.class);
-		query.andQualifier(Article.DOMAIN.eq(domainService.currentDomain()));
-		query.addOrdering(Article.PUBLISHED_ON.desc());
-
-		return cayenneService.sharedContext().select(query);
+		return newsService.getRecentNews();
 	}
 
 	public Format getPublishDateFormat() {
