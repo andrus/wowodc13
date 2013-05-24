@@ -14,10 +14,8 @@ import javax.jms.Topic;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQTopic;
-import org.apache.tapestry5.ioc.annotations.EagerLoad;
 import org.apache.tapestry5.ioc.services.RegistryShutdownHub;
 
-@EagerLoad
 public class JmsClusterService implements IClusterService {
 
 	private ConnectionFactory connectionFactory;
