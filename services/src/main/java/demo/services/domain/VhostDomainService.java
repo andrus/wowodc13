@@ -4,9 +4,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.cayenne.Cayenne;
-import org.apache.cayenne.query.QueryCacheStrategy;
 import org.apache.cayenne.query.SelectQuery;
-
 
 import demo.cayenne.Domain;
 import demo.services.cayenne.ICayenneService;
@@ -24,7 +22,7 @@ public class VhostDomainService implements IDomainService {
 
 		SelectQuery<Domain> query = new SelectQuery<Domain>(Domain.class);
 		query.andQualifier(Domain.VHOST.eq(vhost));
-		query.setCacheStrategy(QueryCacheStrategy.LOCAL_CACHE);
+		query.useLocalCache();
 
 		Domain domain = Cayenne.objectForSelect(cayenneService.sharedContext(),
 				query);
