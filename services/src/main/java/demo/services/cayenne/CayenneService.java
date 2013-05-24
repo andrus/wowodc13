@@ -8,17 +8,20 @@ import org.apache.cayenne.di.Binder;
 import org.apache.cayenne.di.Module;
 import org.apache.tapestry5.ioc.services.RegistryShutdownHub;
 
+import demo.services.cluster.IClusterService;
+
 public class CayenneService implements ICayenneService {
 
 	protected ServerRuntime runtime;
 	private ObjectContext sharedContext;
 
-	public CayenneService(RegistryShutdownHub shutdownHub) {
+	public CayenneService(RegistryShutdownHub shutdownHub, final IClusterService clusterService) {
 
 		Module module = new Module() {
 			@Override
 			public void configure(Binder binder) {
-				binder.bind(QueryCache.class).to(EhCacheQueryCache.class);
+				QueryCache queryCache = new ClusteredQueryCache(new EhCacheQueryCache(), clusterService);
+				binder.bind(QueryCache.class).toInstance(queryCache);
 			}
 		};
 
