@@ -1,6 +1,7 @@
 package demo.editor.services.cayenne;
 
 import org.apache.cayenne.lifecycle.audit.AuditableFilter;
+import org.apache.cayenne.lifecycle.cache.CacheInvalidationFilter;
 import org.apache.cayenne.map.EntityResolver;
 import org.apache.tapestry5.ioc.services.RegistryShutdownHub;
 
@@ -17,6 +18,9 @@ public class EditorCayenneService extends CayenneService {
 				new ContentAuditor());
 
 		runtime.getDataDomain().addFilter(auditableFilter);
+
+		CacheInvalidationFilter cacheInvalidationFilter = new CacheInvalidationFilter();
+		runtime.getDataDomain().addFilter(cacheInvalidationFilter);
 	}
 
 }
