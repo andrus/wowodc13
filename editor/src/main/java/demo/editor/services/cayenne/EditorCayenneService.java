@@ -7,15 +7,15 @@ import org.apache.tapestry5.ioc.services.RegistryShutdownHub;
 
 import demo.editor.audit.ContentAuditor;
 import demo.services.cayenne.CayenneService;
+import demo.services.cluster.IClusterService;
 
 public class EditorCayenneService extends CayenneService {
 
-	public EditorCayenneService(RegistryShutdownHub shutdownHub) {
-		super(shutdownHub);
+	public EditorCayenneService(RegistryShutdownHub shutdownHub, IClusterService clusterService) {
+		super(shutdownHub, clusterService);
 
 		EntityResolver resolver = sharedContext().getEntityResolver();
-		AuditableFilter auditableFilter = new AuditableFilter(resolver,
-				new ContentAuditor());
+		AuditableFilter auditableFilter = new AuditableFilter(resolver, new ContentAuditor());
 
 		runtime.getDataDomain().addFilter(auditableFilter);
 
