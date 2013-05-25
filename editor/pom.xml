@@ -34,27 +34,15 @@
 			<artifactId>services</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.objectstyle</groupId>
+			<artifactId>jetty-launcher</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<configuration>
-					<connectors>
-						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-							<port>7102</port>
-							<maxIdleTime>60000</maxIdleTime>
-
-							<!-- This is needed to work with proxy -->
-							<forwarded>true</forwarded>
-						</connector>
-					</connectors>
-					<webApp>
-						<contextPath>/editor</contextPath>
-					</webApp>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
