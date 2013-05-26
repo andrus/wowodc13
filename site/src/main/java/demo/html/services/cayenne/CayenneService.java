@@ -11,7 +11,7 @@ public class CayenneService implements ICayenneService {
 
 	public CayenneService(RegistryShutdownHub shutdownHub) {
 		this.runtime = new ServerRuntime("cayenne-project.xml");
-		this.sharedContext = runtime.getContext();
+		this.sharedContext = runtime.newContext();
 
 		shutdownHub.addRegistryShutdownListener(new Runnable() {
 
@@ -26,7 +26,7 @@ public class CayenneService implements ICayenneService {
 	}
 
 	public ObjectContext newContext() {
-		return runtime.getContext();
+		return runtime.newContext();
 	}
 
 }
