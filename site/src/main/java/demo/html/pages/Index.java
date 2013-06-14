@@ -15,6 +15,7 @@ import org.apache.tapestry5.corelib.components.Zone;
 import demo.cayenne.Article;
 import demo.services.cayenne.ICayenneService;
 import demo.services.domain.IDomainService;
+import demo.services.news.INewsService;
 
 public class Index {
 	@Property
@@ -28,16 +29,15 @@ public class Index {
 
 	@Inject
 	private IDomainService domainService;
+	
+	@Inject
+	private INewsService newsService;
 
 	@InjectComponent
 	private Zone articleZone;
 
 	public List<Article> getNewsList() {
-		SelectQuery<Article> query = new SelectQuery<Article>(Article.class);
-		query.andQualifier(Article.DOMAIN.eq(domainService.currentDomain()));
-		query.addOrdering(Article.PUBLISHED_ON.desc());
-
-		return cayenneService.sharedContext().select(query);
+		return newsService.getRecentNews();
 	}
 
 	public Format getPublishDateFormat() {
