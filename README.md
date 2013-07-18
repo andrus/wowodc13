@@ -1,4 +1,4 @@
-This repo contains the application that was written as a demo for WOWODC 2103.
+This repo contains the application that was written as a demo for WOWODC 2013.
 
 It is a working, though primitive, CMS system that demonstrates the use of Apache Cayenne
 with Tapestry and JAX RS (REST) interfaces. It demos advanced features like caching and 
