@@ -15,6 +15,8 @@ import demo.cayenne.Domain;
  */
 public abstract class _Article extends CayenneDataObject {
 
+    private static final long serialVersionUID = 1L; 
+
     @Deprecated
     public static final String BODY_PROPERTY = "body";
     @Deprecated

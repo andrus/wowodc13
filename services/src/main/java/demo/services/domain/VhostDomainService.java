@@ -3,7 +3,6 @@ package demo.services.domain;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.cayenne.Cayenne;
 import org.apache.cayenne.query.SelectQuery;
 
 import demo.cayenne.Domain;
@@ -24,8 +23,7 @@ public class VhostDomainService implements IDomainService {
 		query.andQualifier(Domain.VHOST.eq(vhost));
 		query.useLocalCache();
 
-		Domain domain = Cayenne.objectForSelect(cayenneService.sharedContext(),
-				query);
+		Domain domain = cayenneService.sharedContext().selectOne(query);
 
 		if (domain == null) {
 			throw new RuntimeException("Domain not found: " + vhost);
